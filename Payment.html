@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Payment - Datta & Ajay Store</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h2>Select Payment Method</h2>
+<button onclick="showUPI()">💳 UPI</button>
+<button onclick="payCOD()">📦 Cash on Delivery</button>
+
+<div id="upiBox" style="display:none; margin-top:20px;">
+  <h3>Enter UPI ID</h3>
+  <input type="text" id="upi" placeholder="example@upi">
+  <br><br>
+  <button onclick="payUPI()">Pay Now</button>
+</div>
+
+<script>
+function showUPI(){ document.getElementById("upiBox").style.display="block"; }
+
+function payUPI(){
+  const upi = document.getElementById("upi").value.trim();
+  if(upi===""){ alert("Enter UPI ID"); return; }
+  saveOrder("UPI");
+}
+
+function payCOD(){ saveOrder("Cash on Delivery"); }
+
+function saveOrder(method){
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+  if(cart.length===0){ alert("Cart empty!"); return; }
+  let total = cart.reduce((s,i)=>s+i.price*i.qty,0);
+  let orders = JSON.parse(localStorage.getItem("orders")) || [];
+  orders.push({
+    id: Date.now(),
+    date: new Date().toLocaleString(),
+    items: cart,
+    total: total,
+    method: method
+  });
+  localStorage.setItem("orders", JSON.stringify(orders));
+  localStorage.removeItem("cart");
+  window.location.href="bill.html";
+}
+</script>
+
+</body>
+</html>
