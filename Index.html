@@ -2,26 +2,33 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Datta & Ajay Store</title>
+<title>🛍️ Datta & Ajay's Store</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<div id="login-overlay">
-  <h2>Login</h2>
-  <input type="text" id="username" placeholder="Username">
-  <input type="password" id="password" placeholder="Password">
-  <button onclick="login()">Login</button>
-  <p id="login-error">Invalid username or password!</p>
+<!-- LOGIN OVERLAY -->
+<div id="loginOverlay">
+  <div class="login-box">
+    <h2>Login to Enter Store</h2>
+    <input type="text" id="username" placeholder="Username">
+    <input type="password" id="password" placeholder="Password">
+    <button onclick="login()">Login</button>
+    <p id="loginError" style="color:red; display:none;">Invalid username or password!</p>
+  </div>
 </div>
 
-<header id="main-header" class="hidden">
-  <h1>Datta & Ajay Store</h1>
-  <input type="text" id="search" placeholder="Search..." onkeyup="searchProduct()">
-  <a href="wishlist.html"><button>❤️ Wishlist</button></a>
-  <a href="cart.html"><button>🛒 Cart (<span id="cart-count">0</span>)</button></a>
+<!-- HEADER -->
+<header id="mainHeader" class="hidden">
+  <h1>🛒 Datta & Ajay Store</h1>
+  <div>
+    <button onclick="toggleDark()">🌙</button>
+    <a href="wishlist.html"><button>❤️ Wishlist</button></a>
+    <a href="cart.html"><button>🛒 Cart (<span id="cartCount">0</span>)</button></a>
+  </div>
 </header>
 
+<!-- PRODUCTS -->
 <section id="products" class="hidden"></section>
 
 <script src="script.js"></script>
