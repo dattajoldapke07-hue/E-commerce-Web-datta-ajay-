@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Datta & Ajay Store</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="login-overlay">
+  <h2>Login</h2>
+  <input type="text" id="username" placeholder="Username">
+  <input type="password" id="password" placeholder="Password">
+  <button onclick="login()">Login</button>
+  <p id="login-error">Invalid username or password!</p>
+</div>
+
+<header id="main-header" class="hidden">
+  <h1>Datta & Ajay Store</h1>
+  <input type="text" id="search" placeholder="Search..." onkeyup="searchProduct()">
+  <a href="wishlist.html"><button>❤️ Wishlist</button></a>
+  <a href="cart.html"><button>🛒 Cart (<span id="cart-count">0</span>)</button></a>
+</header>
+
+<section id="products" class="hidden"></section>
+
+<script src="script.js"></script>
+</body>
+</html>
